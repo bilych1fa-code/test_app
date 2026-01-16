@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="log"
+            type="String" />
+    </data>
+
+    <TextView
+        android:id="@+id/tvLogItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{log}"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:padding="4dp"/>
+</layout>

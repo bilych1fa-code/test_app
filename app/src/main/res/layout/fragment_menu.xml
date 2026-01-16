@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@android:color/white">
+
+            <EditText
+                android:id="@+id/etUrl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Enter URL to load"
+                android:padding="16dp"
+                android:background="@drawable/bg_edit_text"
+                android:inputType="textUri"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnOpenWebView"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:text="Open Secure WebView"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_button_blue"
+                app:layout_constraintTop_toBottomOf="@id/etUrl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/tvSecureWebView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Secure WebView Demo"
+                android:textSize="24sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/btnOpenWebView"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="24dp"/>
+
+            <TextView
+                android:id="@+id/tvContentAvailable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Content available"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/tvSecureWebView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/switchContent"
+                android:layout_marginTop="16dp"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                app:layout_constraintTop_toTopOf="@id/tvContentAvailable"
+                app:layout_constraintBottom_toBottomOf="@id/tvContentAvailable"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvAnalytics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Analytics"
+                android:textSize="24sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/tvContentAvailable"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="24dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSendAnalytics"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:text="Send Analytics Event"
+                android:textColor="#4A148C"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_button_outline"
+                app:layout_constraintTop_toBottomOf="@id/tvAnalytics"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"/>
+
+            <LinearLayout
+                android:id="@+id/logsContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/btnSendAnalytics"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Logs"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnClearLogs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="Clear"
+                        android:textSize="14sp"
+                        android:textColor="#D32F2F"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        app:icon="@android:drawable/ic_menu_delete"
+                        app:iconTint="#D32F2F"
+                        app:iconGravity="textStart"
+                        android:minWidth="0dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"/>
+
+                </LinearLayout>
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/scrollAnalyticsLog"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:background="@drawable/bg_log"
+                    android:fillViewport="true">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvAnalyticsLog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never"/>
+
+                </androidx.core.widget.NestedScrollView>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvDeepLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deep Link"
+                android:textSize="24sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/logsContainer"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="24dp"/>
+
+            <TextView
+                android:id="@+id/tvDeepLinkDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="For deep link test"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/tvDeepLink"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp"/>
+
+            <EditText
+                android:id="@+id/etDeepLink"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="myapp://game?url=https://news.ycombinator.com&amp;title=Hacker%20News"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:padding="12dp"
+                android:background="@drawable/bg_deep_link"
+                android:inputType="textUri"
+                android:maxLines="2"
+                app:layout_constraintTop_toBottomOf="@id/tvDeepLinkDesc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnCopyDeepLink"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"/>
+
+            <ImageButton
+                android:id="@+id/btnCopyDeepLink"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_menu_set_as"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Copy"
+                app:layout_constraintTop_toTopOf="@id/etDeepLink"
+                app:layout_constraintBottom_toBottomOf="@id/etDeepLink"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSimulateDeepLink"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:text="Simulate Deep Link"
+                android:textColor="#4A148C"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_button_outline"
+                app:layout_constraintTop_toBottomOf="@id/etDeepLink"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

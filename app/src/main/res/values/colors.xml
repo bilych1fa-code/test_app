@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="btn_text_color">#56F4FF</color>
+    <color name="text_border_color">#5B1914</color>
+    <color name="switch_on">#339D48</color>
+    <color name="switch_off">#D91E1E</color>
+    <color name="switch_track">#6B3F29</color>
+
+</resources>
