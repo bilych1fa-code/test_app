@@ -21,11 +21,6 @@
 -keep @androidx.room.Entity class *
 -dontwarn androidx.room.paging.**
 
-# Додатковий захист для UrlProvider
--keepclassmembers class com.test.app.utils.UrlProvider {
-    *;
-}
-
 # WebView
 -keepclassmembers class * extends android.webkit.WebViewClient {
     public void *(android.webkit.WebView, java.lang.String, android.graphics.Bitmap);
